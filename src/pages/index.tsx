@@ -1,6 +1,11 @@
 import React from "react";
+import { CharacterList } from "../components/CharacterList";
+import "../../styles.css";
 
 export default function Index() {
-  console.log("hello Worlds");
-  return <div>Hello World!</div>;
+  return (
+    <div className="App">
+      <CharacterList />
+    </div>
+  );
 }
