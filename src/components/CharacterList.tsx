@@ -1,22 +1,24 @@
 import React from "react";
 import { getCharacters } from "../hooks";
+import { CharacterItem } from "./CharacterItem";
 
 export const CharacterList: React.FC = () => {
   const { loading, data: characters } = getCharacters();
   if (loading) return <div>Getting characeters</div>;
 
   return (
-    <div>
+    <div className="list">
       {characters.map((character, index) => {
         return (
-          <li key={index}>
-            <img
-              src={character.image.medium}
-              alt={character.name.full}
-              width="100"
-              height="150"
+          <div key={index}>
+            <CharacterItem
+              fullname={character.name.full}
+              age={character.age}
+              gender={character.gender}
+              bloodType={character.bloodType}
+              image={character.image.medium}
             />
-          </li>
+          </div>
         );
       })}
     </div>
