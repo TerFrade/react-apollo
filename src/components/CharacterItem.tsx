@@ -6,6 +6,7 @@ type Props = {
   bloodType: string;
   image: string;
 };
+
 export const CharacterItem: React.FC<Props> = ({
   fullname,
   age,
@@ -13,13 +14,32 @@ export const CharacterItem: React.FC<Props> = ({
   bloodType,
   image,
 }: Props) => {
+  const getBackGroundColor = () => {
+    switch (bloodType) {
+      case "A":
+        return "#fb312b";
+      case "B":
+        return "#12cd2c";
+      case "AB":
+        return "#b41174";
+      case "O":
+        return "#252525";
+      default:
+        return "#03446a";
+    }
+  };
   return (
     <div className="card">
       <div className="content">
         <div className="front">
-          <img src={image} alt="" style={{ width: "100%", height: "100%" }} />
+          <img src={image} />
         </div>
-        <div className="back">Back!</div>
+        <div className="back" style={{ backgroundColor: getBackGroundColor() }}>
+          <h3>{fullname}</h3>
+          <p>{age ? age : "∞"}</p>
+          <p>{gender ? gender : "Unknown"}</p>
+          <p>{bloodType ? bloodType : "Unknown"}</p>
+        </div>
       </div>
     </div>
   );

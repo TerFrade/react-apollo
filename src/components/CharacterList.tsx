@@ -10,15 +10,14 @@ export const CharacterList: React.FC = () => {
     <div className="list">
       {characters.map((character, index) => {
         return (
-          <div key={index}>
-            <CharacterItem
-              fullname={character.name.full}
-              age={character.age}
-              gender={character.gender}
-              bloodType={character.bloodType}
-              image={character.image.medium}
-            />
-          </div>
+          <CharacterItem
+            key={index}
+            fullname={character.name.full}
+            age={character.age}
+            gender={character.gender}
+            bloodType={character.bloodType}
+            image={character.image.medium}
+          />
         );
       })}
     </div>
