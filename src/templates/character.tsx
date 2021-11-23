@@ -23,8 +23,7 @@ export const query = graphql`
 `;
 const character = ({ data }: any) => {
   const character = data.aniList.Page.characters[0] as Character;
-  console.log(character.age);
-  return <div>HelloWorld</div>;
+  return <div>{character.name.full}</div>;
 };
 
 export default character;

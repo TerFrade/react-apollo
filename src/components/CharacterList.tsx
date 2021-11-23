@@ -11,7 +11,8 @@ export const CharacterList: React.FC = () => {
       {characters.map((character, index) => {
         return (
           <CharacterItem
-            key={index}
+            key={character.id}
+            id={character.id}
             fullname={character.name.full}
             age={character.age}
             gender={character.gender}

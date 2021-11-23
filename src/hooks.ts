@@ -6,6 +6,7 @@ const GET_CHARACTERS = gql`
   query Query {
     Page {
       characters {
+        id
         name {
           full
         }

@@ -1,5 +1,7 @@
+import { Link } from "gatsby";
 import React from "react";
 type Props = {
+  id: number;
   fullname: string;
   age: number;
   gender: string;
@@ -8,6 +10,7 @@ type Props = {
 };
 
 export const CharacterItem: React.FC<Props> = ({
+  id,
   fullname,
   age,
   gender,
@@ -29,18 +32,23 @@ export const CharacterItem: React.FC<Props> = ({
     }
   };
   return (
-    <div className="card">
-      <div className="content">
-        <div className="front">
-          <img src={image} />
-        </div>
-        <div className="back" style={{ backgroundColor: getBackGroundColor() }}>
-          <h3>{fullname}</h3>
-          <p>{age ? age : "∞"}</p>
-          <p>{gender ? gender : "Unknown"}</p>
-          <p>{bloodType ? bloodType : "Unknown"}</p>
+    <Link to={`/character/${id}`}>
+      <div className="card">
+        <div className="content">
+          <div className="front">
+            <img src={image} />
+          </div>
+          <div
+            className="back"
+            style={{ backgroundColor: getBackGroundColor() }}
+          >
+            <h3>{fullname}</h3>
+            <p>{age ? age : "∞"}</p>
+            <p>{gender ? gender : "Unknown"}</p>
+            <p>{bloodType ? bloodType : "Unknown"}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
