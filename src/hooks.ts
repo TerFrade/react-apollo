@@ -10,3 +10,18 @@ export function getCharacters() {
   };
   return results;
 }
+
+export function getBloodTypeColor(bloodType: string): string {
+  switch (bloodType) {
+    case "A":
+      return "#fb312b";
+    case "B":
+      return "#12cd2c";
+    case "AB":
+      return "#b41174";
+    case "O":
+      return "#252525";
+    default:
+      return "#03446a";
+  }
+}

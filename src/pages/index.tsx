@@ -3,7 +3,7 @@ import { CharacterList } from "../components/CharacterList";
 
 export default function Index() {
   return (
-    <div className="App">
+    <div className="container">
       <CharacterList />
     </div>
   );

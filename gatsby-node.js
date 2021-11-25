@@ -10,6 +10,7 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     }
   `);
+
   if (results.error) {
     console.log("something went wrong");
     return;

@@ -11,6 +11,7 @@ export const query = graphql`
             full
           }
           image {
+            large
             medium
           }
           description
@@ -24,7 +25,17 @@ export const query = graphql`
 `;
 const character = ({ data }: any) => {
   const character = data.aniList.Page.characters[0] as Character;
-  return <CharacterSection />;
+  return (
+    <CharacterSection
+      id={character.id}
+      image={character.image.large}
+      fullname={character.name.full}
+      age={character.age}
+      gender={character.gender}
+      bloodType={character.bloodType}
+      description={character.description}
+    />
+  );
 };
 
 export default character;

@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import { getBloodTypeColor } from "../hooks";
 type Props = {
   id: number;
   fullname: string;
@@ -17,30 +18,16 @@ export const CharacterCard: React.FC<Props> = ({
   bloodType,
   image,
 }: Props) => {
-  const getBackGroundColor = () => {
-    switch (bloodType) {
-      case "A":
-        return "#fb312b";
-      case "B":
-        return "#12cd2c";
-      case "AB":
-        return "#b41174";
-      case "O":
-        return "#252525";
-      default:
-        return "#03446a";
-    }
-  };
   return (
     <Link to={`/character/${id}`}>
       <div className="card">
         <div className="content">
           <div className="front">
-            <img src={image} />
+            <img className="imgCard" src={image} />
           </div>
           <div
             className="back"
-            style={{ backgroundColor: getBackGroundColor() }}
+            style={{ backgroundColor: getBloodTypeColor(bloodType) }}
           >
             <h3>{fullname}</h3>
             <p>{age ? age : "∞"}</p>

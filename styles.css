@@ -1,7 +1,7 @@
-.App {
+.container {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 70rem;
-  margin: 10rem auto;
+  margin: 5rem auto;
 }
 
 .list {
@@ -34,7 +34,7 @@
 
 .front,
 .back,
-img {
+.imgCard {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -50,4 +50,25 @@ img {
 
 .back > * {
   padding: 0px 10px;
+}
+
+.section {
+  margin: auto 2rem;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading > h1 {
+  text-align: center;
+}
+
+.imgRound {
+  width: 180px;
+  height: 200px;
+  border-radius: 15px;
+  border-style: solid;
 }
