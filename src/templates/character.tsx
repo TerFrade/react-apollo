@@ -27,7 +27,6 @@ const character = ({ data }: any) => {
   const character = data.aniList.Page.characters[0] as Character;
   return (
     <CharacterSection
-      id={character.id}
       image={character.image.large}
       fullname={character.name.full}
       age={character.age}

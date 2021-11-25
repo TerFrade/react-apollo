@@ -9,7 +9,7 @@ export const GET_CHARACTERS = gql`
           full
         }
         image {
-          medium
+          large
         }
         gender
         age

@@ -17,7 +17,7 @@ export const CharacterList: React.FC = () => {
             age={character.age}
             gender={character.gender}
             bloodType={character.bloodType}
-            image={character.image.medium}
+            image={character.image.large}
           />
         );
       })}

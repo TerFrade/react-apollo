@@ -1,4 +1,4 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { Character } from "./models";
 import { GET_CHARACTERS } from "./queries";
 
@@ -20,7 +20,9 @@ export function getBloodTypeColor(bloodType: string): string {
     case "AB":
       return "#b41174";
     case "O":
-      return "#252525";
+      return "#070b0d";
+    case "F":
+      return "#f3600d";
     default:
       return "#03446a";
   }

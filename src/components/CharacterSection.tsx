@@ -1,7 +1,6 @@
 import React from "react";
 import { getBloodTypeColor } from "../hooks";
 type Props = {
-  id: number;
   image: string;
   fullname: string;
   age: number;
@@ -11,7 +10,6 @@ type Props = {
 };
 
 export const CharacterSection: React.FC<Props> = ({
-  id,
   image,
   fullname,
   age,
@@ -19,18 +17,29 @@ export const CharacterSection: React.FC<Props> = ({
   bloodType,
   description,
 }: Props) => {
+  const bloodTypeColor = getBloodTypeColor(bloodType);
   return (
     <div className="container">
       <div className="section">
         <div className="heading">
           <img
-            className="imgRound"
+            className="imgPortrait"
             src={image}
-            style={{ borderColor: getBloodTypeColor(bloodType) }}
+            style={{ borderColor: bloodTypeColor }}
           />
           <h1>{fullname}</h1>
         </div>
-        <div>extra info pills</div>
+        <div className="pillSection">
+          <p className="pill" style={{ backgroundColor: bloodTypeColor }}>
+            Age: {age ? age : "∞"}
+          </p>
+          <p className="pill" style={{ backgroundColor: bloodTypeColor }}>
+            Sex: {gender ? gender : "Unknown"}
+          </p>
+          <p className="pill" style={{ backgroundColor: bloodTypeColor }}>
+            Blood: {bloodType ? bloodType : "Unknown"}
+          </p>
+        </div>
         <p dangerouslySetInnerHTML={{ __html: description }} />
       </div>
     </div>

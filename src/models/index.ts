@@ -6,6 +6,6 @@ export interface Character {
   age: number;
   gender: string;
   bloodType: string;
-  image: { medium: string; large: string };
+  image: { large: string };
   description: string;
 }

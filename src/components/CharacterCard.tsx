@@ -30,9 +30,9 @@ export const CharacterCard: React.FC<Props> = ({
             style={{ backgroundColor: getBloodTypeColor(bloodType) }}
           >
             <h3>{fullname}</h3>
-            <p>{age ? age : "∞"}</p>
-            <p>{gender ? gender : "Unknown"}</p>
-            <p>{bloodType ? bloodType : "Unknown"}</p>
+            <p>Age: {age ? age : "∞"}</p>
+            <p>Sex: {gender ? gender : "Unknown"}</p>
+            <p>Blood: {bloodType ? bloodType : "Unknown"}</p>
           </div>
         </div>
       </div>
