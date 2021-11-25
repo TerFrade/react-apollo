@@ -9,7 +9,7 @@ type Props = {
   image: string;
 };
 
-export const CharacterItem: React.FC<Props> = ({
+export const CharacterCard: React.FC<Props> = ({
   id,
   fullname,
   age,

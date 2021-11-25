@@ -1,6 +1,6 @@
 import React from "react";
 import { getCharacters } from "../hooks";
-import { CharacterItem } from "./CharacterItem";
+import { CharacterCard } from "../components/CharacterCard";
 
 export const CharacterList: React.FC = () => {
   const { loading, data: characters } = getCharacters();
@@ -10,7 +10,7 @@ export const CharacterList: React.FC = () => {
     <div className="list">
       {characters.map((character, index) => {
         return (
-          <CharacterItem
+          <CharacterCard
             key={character.id}
             id={character.id}
             fullname={character.name.full}
