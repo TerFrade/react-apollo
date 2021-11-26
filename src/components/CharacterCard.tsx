@@ -8,6 +8,7 @@ type Props = {
   gender: string;
   bloodType: string;
   image: string;
+  showTitle: string;
 };
 
 export const CharacterCard: React.FC<Props> = ({
@@ -17,6 +18,7 @@ export const CharacterCard: React.FC<Props> = ({
   gender,
   bloodType,
   image,
+  showTitle,
 }: Props) => {
   return (
     <Link to={`/character/${id}`}>
@@ -33,6 +35,7 @@ export const CharacterCard: React.FC<Props> = ({
             <p>Age: {age ? age : "∞"}</p>
             <p>Sex: {gender ? gender : "Unknown"}</p>
             <p>Blood: {bloodType ? bloodType : "Unknown"}</p>
+            <p>Anime: {showTitle}</p>
           </div>
         </div>
       </div>

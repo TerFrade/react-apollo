@@ -12,12 +12,20 @@ export const query = graphql`
           }
           image {
             large
-            medium
           }
           description
           gender
           age
           bloodType
+          media {
+            edges {
+              node {
+                title {
+                  userPreferred
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -33,6 +41,7 @@ const character = ({ data }: any) => {
       gender={character.gender}
       bloodType={character.bloodType}
       description={character.description}
+      showTitle={character.media.edges[0].node.title.userPreferred}
     />
   );
 };

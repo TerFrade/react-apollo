@@ -8,4 +8,11 @@ export interface Character {
   bloodType: string;
   image: { large: string };
   description: string;
+  media: {
+    edges: [
+      {
+        node: { title: { userPreferred: string } };
+      }
+    ];
+  };
 }

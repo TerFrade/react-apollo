@@ -18,6 +18,7 @@ export const CharacterList: React.FC = () => {
             gender={character.gender}
             bloodType={character.bloodType}
             image={character.image.large}
+            showTitle={character.media.edges[0].node.title.userPreferred}
           />
         );
       })}

@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import { graphql } from "gatsby";
 
 export const GET_CHARACTERS = gql`
   query Query {
@@ -14,6 +15,15 @@ export const GET_CHARACTERS = gql`
         gender
         age
         bloodType
+        media {
+          edges {
+            node {
+              title {
+                userPreferred
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -34,6 +44,15 @@ export const GET_CHARACTER = gql`
           gender
           age
           bloodType
+          media {
+            edges {
+              node {
+                title {
+                  userPreferred
+                }
+              }
+            }
+          }
         }
       }
     }
