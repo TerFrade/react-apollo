@@ -14,7 +14,7 @@ export function getCharacters() {
 export function getBloodTypeColor(bloodType: string): string {
   switch (bloodType) {
     case "A":
-      return "#fb312b";
+      return "#f1221b";
     case "B":
       return "#12cd2c";
     case "AB":
