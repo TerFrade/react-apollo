@@ -12,14 +12,15 @@ body {
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  justify-content: space-evenly;
+  gap: 50px;
+  justify-content: center;
 }
 
 .card {
   width: 180px;
   height: 250px;
   perspective: 500px;
+  cursor: pointer;
 }
 
 .content {

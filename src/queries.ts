@@ -1,9 +1,8 @@
 import { gql } from "@apollo/client";
-import { graphql } from "gatsby";
 
 export const GET_CHARACTERS = gql`
-  query Query {
-    Page {
+  query GetCharacters($page: Int, $perPage: Int) {
+    Page(page: $page, perPage: $perPage) {
       characters {
         id
         name {

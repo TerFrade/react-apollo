@@ -3,14 +3,23 @@ import { Character } from "./models";
 import { GET_CHARACTERS } from "./queries";
 
 export function getCharacters() {
-  const { loading, data } = useQuery(GET_CHARACTERS);
+  const { loading, data, fetchMore } = useQuery(GET_CHARACTERS, {
+    variables: {
+      page: 1,
+      perPage: 10,
+    },
+  });
+
   const results = {
     loading: loading,
     data: <Character[]>data?.Page.characters,
+    fetchMore,
   };
+
   return results;
 }
 
+//this belongs in a utils file but this is fine for now.
 export function getBloodTypeColor(bloodType: string): string {
   switch (bloodType) {
     case "A":

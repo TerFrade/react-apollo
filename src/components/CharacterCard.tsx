@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import React from "react";
 import { getBloodTypeColor } from "../hooks";
 type Props = {
@@ -21,22 +21,20 @@ export const CharacterCard: React.FC<Props> = ({
   showTitle,
 }: Props) => {
   return (
-    <Link to={`/character/${id}`}>
-      <div className="card">
-        <div className="content">
-          <div className="front">
-            <img className="imgCard" src={image} />
-          </div>
-          <div
-            className="back"
-            style={{ backgroundColor: getBloodTypeColor(bloodType) }}
-          >
-            <h3>{fullname}</h3>
-            <p>Age: {age ? age : "∞"}</p>
-            <p>Sex: {gender ? gender : "Unknown"}</p>
-            <p>Blood: {bloodType ? bloodType : "Unknown"}</p>
-            <p>Anime: {showTitle}</p>
-          </div>
+    <Link className="card" to={`/character/${id}`}>
+      <div className="content">
+        <div className="front">
+          <img className="imgCard" src={image} />
+        </div>
+        <div
+          className="back"
+          style={{ backgroundColor: getBloodTypeColor(bloodType) }}
+        >
+          <h3>{fullname}</h3>
+          <p>Age: {age ? age : "∞"}</p>
+          <p>Sex: {gender ? gender : "Unknown"}</p>
+          <p>Blood: {bloodType ? bloodType : "Unknown"}</p>
+          <p>Anime: {showTitle}</p>
         </div>
       </div>
     </Link>

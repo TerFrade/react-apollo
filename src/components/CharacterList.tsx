@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { getCharacters } from "../hooks";
 import { CharacterCard } from "../components/CharacterCard";
 
 export const CharacterList: React.FC = () => {
-  const { loading, data: characters } = getCharacters();
+  const [page, setPage] = useState(2);
+  const { loading, data: characters, fetchMore } = getCharacters();
   if (loading) return <div>Getting characeters</div>;
 
+  const jesus = () => {
+    fetchMore({
+      variables: {
+        page: page,
+      },
+    }).then((res) => {
+      setPage(page + 1);
+    });
+  };
   return (
     <div className="list">
-      {characters.map((character, index) => {
+      {characters.map((character) => {
         return (
           <CharacterCard
             key={character.id}
@@ -22,6 +32,7 @@ export const CharacterList: React.FC = () => {
           />
         );
       })}
+      <button onClick={jesus}>Click me</button>
     </div>
   );
 };
