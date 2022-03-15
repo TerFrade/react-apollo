@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
 import { Character } from "./models";
 import { GET_CHARACTERS } from "./queries";
 
@@ -6,7 +7,7 @@ export function getCharacters() {
   const { loading, data, fetchMore } = useQuery(GET_CHARACTERS, {
     variables: {
       page: 1,
-      perPage: 10,
+      perPage: 15,
     },
   });
 
@@ -18,6 +19,26 @@ export function getCharacters() {
 
   return results;
 }
+
+export const useInfiniteScroll = (callback: () => {}) => {
+  const [isFetching, setIsFetching] = useState(false);
+
+  function scrollEvent() {
+    const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+    if (scrollPercent >= 85 && !isFetching) setIsFetching(true);
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollEvent);
+    return () => window.removeEventListener("scroll", scrollEvent);
+  }, []);
+
+  useEffect(() => {
+    callback();
+  }, [isFetching]);
+
+  return [isFetching, setIsFetching] as const;
+};
 
 //this belongs in a utils file but this is fine for now.
 export function getBloodTypeColor(bloodType: string): string {

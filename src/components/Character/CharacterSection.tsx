@@ -1,5 +1,5 @@
 import React from "react";
-import { getBloodTypeColor } from "../hooks";
+import { getBloodTypeColor } from "../../hooks";
 type Props = {
   image: string;
   fullname: string;
@@ -10,25 +10,13 @@ type Props = {
   showTitle: string;
 };
 
-export const CharacterSection: React.FC<Props> = ({
-  image,
-  fullname,
-  age,
-  gender,
-  bloodType,
-  description,
-  showTitle,
-}: Props) => {
+const CharacterSection: React.FC<Props> = ({ image, fullname, age, gender, bloodType, description, showTitle }: Props) => {
   const bloodTypeColor = getBloodTypeColor(bloodType);
   return (
     <div className="container">
       <div className="section">
         <div className="heading">
-          <img
-            className="imgPortrait"
-            src={image}
-            style={{ borderColor: bloodTypeColor }}
-          />
+          <img className="imgPortrait" src={image} style={{ borderColor: bloodTypeColor }} />
           <h1>{fullname}</h1>
         </div>
         <div className="pillSection">
@@ -50,3 +38,5 @@ export const CharacterSection: React.FC<Props> = ({
     </div>
   );
 };
+
+export default CharacterSection;

@@ -14,11 +14,7 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `);
 
-  for (
-    let index = 1;
-    index <= totalPage.data.aniList.Page.pageInfo.lastPage;
-    index++
-  ) {
+  for (let index = 1; index <= 20; index++) {
     const results = await graphql(`
       query {
         aniList {
