@@ -4,12 +4,16 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   font-family: Arial, Helvetica, sans-serif;
   max-width: 70rem;
   margin: 5rem auto;
 }
 
 .list {
+  padding: 0px 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
@@ -55,7 +59,7 @@ body {
 }
 
 .back > * {
-  padding: 0px 10px;
+  padding: 0px 5px;
 }
 
 .section {
@@ -103,4 +107,24 @@ body {
   margin: auto 5px;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+
+.searchBar {
+  align-self: center;
+}
+
+.searchBar > input {
+  width: 40em;
+  padding: 10px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: rgb(15, 15, 15);
+  border: none;
+}
+.searchBar > input:focus {
+  border: none;
+}
+
+.searchBar > input::placeholder {
+  color: rgba(59, 59, 59, 0.65);
 }

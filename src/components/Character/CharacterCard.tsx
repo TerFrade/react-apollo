@@ -22,8 +22,8 @@ const CharacterCard: React.FC<Props> = ({ id, fullname, age, gender, bloodType, 
         <div className="back" style={{ backgroundColor: getBloodTypeColor(bloodType) }}>
           <h3>{fullname}</h3>
           <p>Age: {age ? age : "Unknown"}</p>
-          <p>Sex: {gender ? gender : "Unknown"}</p>
-          <p>Blood: {bloodType ? bloodType : "Unknown"}</p>
+          <p>Gender: {gender ? gender : "Unknown"}</p>
+          <p>Blood Type: {bloodType ? bloodType : "Unknown"}</p>
           <p>Anime: {showTitle}</p>
         </div>
       </div>

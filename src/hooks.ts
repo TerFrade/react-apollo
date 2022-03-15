@@ -24,8 +24,12 @@ export const useInfiniteScroll = (callback: () => {}) => {
   const [isFetching, setIsFetching] = useState(false);
 
   function scrollEvent() {
-    const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-    if (scrollPercent >= 85 && !isFetching) setIsFetching(true);
+    if (!isFetching) {
+      const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+      if (scrollPercent >= 80) {
+        setIsFetching(true);
+      }
+    }
   }
 
   useEffect(() => {

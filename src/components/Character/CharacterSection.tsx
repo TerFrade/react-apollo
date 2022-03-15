@@ -12,6 +12,7 @@ type Props = {
 
 const CharacterSection: React.FC<Props> = ({ image, fullname, age, gender, bloodType, description, showTitle }: Props) => {
   const bloodTypeColor = getBloodTypeColor(bloodType);
+
   return (
     <div className="container">
       <div className="section">
@@ -27,10 +28,10 @@ const CharacterSection: React.FC<Props> = ({ image, fullname, age, gender, blood
             Age: {age ? age : "∞"}
           </p>
           <p className="pill" style={{ backgroundColor: bloodTypeColor }}>
-            Sex: {gender ? gender : "Unknown"}
+            Gender: {gender ? gender : "Unknown"}
           </p>
           <p className="pill" style={{ backgroundColor: bloodTypeColor }}>
-            Blood: {bloodType ? bloodType : "Unknown"}
+            Blood Type: {bloodType ? bloodType : "Unknown"}
           </p>
         </div>
         <p dangerouslySetInnerHTML={{ __html: description }} />
