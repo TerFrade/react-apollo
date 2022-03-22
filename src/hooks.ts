@@ -20,13 +20,13 @@ export function getCharacters() {
   return results;
 }
 
-export const useInfiniteScroll = (callback: () => {}) => {
+export function useInfiniteScroll(callback: () => {}) {
   const [isFetching, setIsFetching] = useState(false);
 
   function scrollEvent() {
     if (!isFetching) {
       const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-      if (scrollPercent >= 80) {
+      if (scrollPercent >= 60) {
         setIsFetching(true);
       }
     }
@@ -42,7 +42,7 @@ export const useInfiniteScroll = (callback: () => {}) => {
   }, [isFetching]);
 
   return [isFetching, setIsFetching] as const;
-};
+}
 
 //this belongs in a utils file but this is fine for now.
 export function getBloodTypeColor(bloodType: string): string {
