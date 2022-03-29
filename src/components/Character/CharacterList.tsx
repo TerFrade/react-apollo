@@ -11,6 +11,8 @@ const CharacterList: React.FC = () => {
 
   if (loading) return <div>Getting characeters...</div>;
 
+  console.log(characters);
+
   async function loadMorePages() {
     if (!loading && isFetching) {
       await fetchMore({
@@ -28,24 +30,42 @@ const CharacterList: React.FC = () => {
     setIsFetching(false);
   }
 
+  function searchCharacters(search: string | null) {
+    fetchMore({
+      variables: {
+        page: 1,
+        search: search,
+        sort: search == null ? "FAVOURITES_DESC" : "SEARCH_MATCH",
+      },
+      updateQuery: (previousResult: any, { fetchMoreResult }) => {
+        fetchMoreResult.Page.characters = [...fetchMoreResult.Page.characters];
+        return fetchMoreResult;
+      },
+    });
+  }
+
   return (
     <>
-      <SearchBar />
+      <SearchBar searchCharacters={searchCharacters} />
       <div className="list">
-        {characters.map((character: Character) => {
-          return (
-            <CharacterCard
-              key={character.id}
-              id={character.id}
-              fullname={character.name.full}
-              age={character.age}
-              gender={character.gender}
-              bloodType={character.bloodType}
-              image={character.image.large}
-              showTitle={character.media.edges[0].node.title.userPreferred}
-            />
-          );
-        })}
+        {characters.length > 0 ? (
+          characters.map((character: Character) => {
+            return (
+              <CharacterCard
+                key={character.id}
+                id={character.id}
+                fullname={character.name.full}
+                age={character.age}
+                gender={character.gender}
+                bloodType={character.bloodType}
+                image={character.image.large}
+                showTitle={character.media.edges[0].node.title.userPreferred}
+              />
+            );
+          })
+        ) : (
+          <div>No characters found...</div>
+        )}
       </div>
     </>
   );

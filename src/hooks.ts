@@ -7,7 +7,9 @@ export function getCharacters() {
   const { loading, data, fetchMore } = useQuery(GET_CHARACTERS, {
     variables: {
       page: 1,
-      perPage: 15,
+      perPage: 20,
+      search: null,
+      sort: "FAVOURITES_DESC",
     },
   });
 
