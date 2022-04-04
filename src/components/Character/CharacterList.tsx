@@ -25,9 +25,9 @@ const CharacterList: React.FC = () => {
         },
       }).then(() => {
         setPage((prevPage: number) => prevPage + 1);
+        setIsFetching(false);
       });
     }
-    setIsFetching(false);
   }
 
   function searchCharacters(search: string | null) {

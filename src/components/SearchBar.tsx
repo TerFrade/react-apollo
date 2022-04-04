@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 type Props = {
   searchCharacters(search: string | null): void;
 };
+
 const SearchBar: React.FC<Props> = ({ searchCharacters }: Props) => {
   const [search, setSearch] = useState(null);
 
@@ -10,6 +12,7 @@ const SearchBar: React.FC<Props> = ({ searchCharacters }: Props) => {
     setSearch((prevState) => (prevState = searchValue != "" ? searchValue : null));
   }
 
+  //setting this makes it not tied to property of the element?
   useEffect(() => {
     searchCharacters(search);
   }, [search]);
