@@ -11,7 +11,7 @@ const CharacterList: React.FC = () => {
 
   console.log(characters);
 
-  if (loading) return <div>Getting characeters...</div>;
+  if (loading) return <div>Getting characeters..</div>;
 
   async function loadMorePages() {
     if (!loading && isFetching) {
