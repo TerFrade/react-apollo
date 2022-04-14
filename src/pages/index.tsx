@@ -1,5 +1,5 @@
 import React from "react";
-import { CharacterList } from "../../components/Character";
+import { CharacterList } from "../components/Character";
 
 export default function Index() {
   return (

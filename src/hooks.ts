@@ -4,7 +4,7 @@ import { Character } from "./models";
 import { GET_CHARACTERS } from "./queries";
 
 export function getCharacters() {
-  const { loading, data, fetchMore } = useQuery(GET_CHARACTERS, {
+  const { loading, data, fetchMore, networkStatus } = useQuery(GET_CHARACTERS, {
     variables: {
       page: 1,
       perPage: 20,

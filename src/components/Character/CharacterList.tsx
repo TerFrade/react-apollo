@@ -9,9 +9,9 @@ const CharacterList: React.FC = () => {
   const { loading, data: characters, fetchMore } = getCharacters();
   const [isFetching, setIsFetching] = useInfiniteScroll(loadMorePages);
 
-  if (loading) return <div>Getting characeters...</div>;
-
   console.log(characters);
+
+  if (loading) return <div>Getting characeters...</div>;
 
   async function loadMorePages() {
     if (!loading && isFetching) {
