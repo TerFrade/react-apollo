@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Character } from "../../models";
-import { getCharacters, useInfiniteScroll } from "../../hooks";
+import { useInfiniteScroll } from "../../hooks";
+import { useCharacters } from "./hooks";
 import CharacterCard from "./CharacterCard";
 import SearchBar from "../SearchBar";
 
 const CharacterList: React.FC = () => {
   const [page, setPage] = useState(2);
-  const { loading, data: characters, fetchMore } = getCharacters();
+  const { loading, data: characters, fetchMore } = useCharacters();
   const [isFetching, setIsFetching] = useInfiniteScroll(loadMorePages);
 
   console.log(characters);

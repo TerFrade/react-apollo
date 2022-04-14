@@ -1,7 +1,7 @@
-import { Link } from "gatsby";
 import React from "react";
-import { getBloodTypeColor } from "../../hooks";
+import { Link } from "gatsby";
 import { Character } from "../../models";
+import { getBloodTypeColor } from "../../utils";
 
 type Props = {
   character: Character;

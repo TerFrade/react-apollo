@@ -1,6 +1,7 @@
 import React from "react";
-import { getBloodTypeColor } from "../../hooks";
 import { Character } from "../../models";
+import { getBloodTypeColor } from "../../utils";
+
 type Props = {
   character: Character;
 };
