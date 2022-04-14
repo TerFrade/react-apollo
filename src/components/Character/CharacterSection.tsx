@@ -1,28 +1,39 @@
 import React from "react";
 import { getBloodTypeColor } from "../../hooks";
+import { Character } from "../../models";
 type Props = {
-  image: string;
-  fullname: string;
-  age: number;
-  gender: string;
-  bloodType: string;
-  description: string;
-  showTitle: string;
+  character: Character;
 };
 
-const CharacterSection: React.FC<Props> = ({ image, fullname, age, gender, bloodType, description, showTitle }: Props) => {
+const CharacterSection: React.FC<Props> = ({ character }: Props) => {
+  const {
+    name,
+    description,
+    age,
+    bloodType,
+    gender,
+    image,
+    media: {
+      edges: {
+        "0": {
+          node: { title },
+        },
+      },
+    },
+  } = character;
+
   const bloodTypeColor = getBloodTypeColor(bloodType);
 
   return (
     <div className="container">
       <div className="section">
         <div className="heading">
-          <img className="imgPortrait" src={image} style={{ borderColor: bloodTypeColor }} />
-          <h1>{fullname}</h1>
+          <img className="imgPortrait" src={image.large} style={{ borderColor: bloodTypeColor }} />
+          <h1>{name.full}</h1>
         </div>
         <div className="pillSection">
           <p className="pill" style={{ backgroundColor: bloodTypeColor }}>
-            Anime: {showTitle}
+            Anime: {title.userPreferred}
           </p>
           <p className="pill" style={{ backgroundColor: bloodTypeColor }}>
             Age: {age ? age : "∞"}

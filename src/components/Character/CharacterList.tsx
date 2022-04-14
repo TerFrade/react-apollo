@@ -50,18 +50,7 @@ const CharacterList: React.FC = () => {
       <div className="list">
         {characters.length > 0 ? (
           characters.map((character: Character) => {
-            return (
-              <CharacterCard
-                key={character.id}
-                id={character.id}
-                fullname={character.name.full}
-                age={character.age}
-                gender={character.gender}
-                bloodType={character.bloodType}
-                image={character.image.large}
-                showTitle={character.media.edges[0].node.title.userPreferred}
-              />
-            );
+            return <CharacterCard character={character} />;
           })
         ) : (
           <div>No characters found...</div>
