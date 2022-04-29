@@ -1,6 +1,7 @@
 import React from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { relayStylePagination } from "@apollo/client/utilities";
+import { Helmet } from "react-helmet";
 import "./styles.css";
 
 const cache = new InMemoryCache({
@@ -19,5 +20,10 @@ const client = new ApolloClient({
 });
 
 export const wrapRootElement = ({ element }) => {
-  return <ApolloProvider client={client}>{element}</ApolloProvider>;
+  return (
+    <ApolloProvider client={client}>
+      <Helmet title="Anime List" />
+      {element}
+    </ApolloProvider>
+  );
 };
