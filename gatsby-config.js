@@ -5,9 +5,8 @@ module.exports = {
     description: `A small anime list with a basic search feature`,
     url: `https://www.gatsbyjs.org/`,
     image: `/images/favicon.png`,
-    twitterUsername: "",
-    copyright: `Copyright © 2020`,
-    author: ``,
+    copyright: `Copyright © 2022`,
+    author: `Terence`,
   },
   plugins: [
     {
